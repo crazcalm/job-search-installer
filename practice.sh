@@ -70,7 +70,7 @@ fi
 
     # Give them and example of creating an alias
     case "${SHELL}" in
-    bash)
+    /bin/bash)
         # Add an example of creating an alias
         echo "alias jobs=python3 ${JOB_SEARCH_ROOT}/jobs.py"
         ;;
