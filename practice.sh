@@ -35,7 +35,6 @@ fi
 case "$SHELL" in
 /bin/bash)
     PROFILE="~/.bashrc"
-    echo 'case: bash'
     ;;
 /bin/zsh)
     PROFILE="~/.zshrc"
@@ -58,13 +57,13 @@ if ! command -v git 1>/dev/null 2>&1; then
     echo "job-search: Git is not installed. Cannot continue." & >2
     exit 2
 else
-    echo "\n\n"
+    echo -e "\n\n"
     checkout ${GITHUB} ${JOB_SEARCH_ROOT}
 fi
 
 {
-    echo "\n\nUse job-search from any directory by"
-    echo "creating an alias in your ${PROFILE}\n\n"
+    echo -e "\n\nUse job-search from any directory by"
+    echo -e "creating an alias in your ${PROFILE}\n\n"
 
     # Give them and example of creating an alias
     case "${SHELL}" in
