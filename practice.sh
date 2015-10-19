@@ -5,7 +5,7 @@ set -e
 set -x
 
 JOB_SEARCH_ROOT="${HOME}/.job_search"
-GITHUB="https://github.com/crazcalm/job-search" # add real url
+GITHUB="https://github.com/crazcalm/job-search.git"
 SHELL=$1
 
 # Need to check to see if the shell is variable is Null
@@ -13,12 +13,15 @@ SHELL=$1
 if [-z "$SHELL"]; then
     echo 'A shell argument was not used (Ex: bash)'
     exit 2
+else
+    echo "The ${SHELL} is being used."
 fi
 
 # Need to define the "$PROFILE" variable based on the shell used
 case "$SHELL" in
 bash)
     PROFILE="~/.bashrc"
+    echo 'case: bash'
     ;;
 zsh)
     PROFILE="~/.zshrc"
@@ -38,8 +41,10 @@ esac
 # Need to check if "git" is installed on this computer
 # Checks to see if the git commands exists
 if ! command -v git 1>/dev/null 2>&1; then
-    echo "job-search: Git is not installed, Can't continue." &>2
+    echo "job-search: Git is not installed. Cannot continue." &>2
     exit 2
+else
+    echo 'The git command does exits! I should clone the repo here...'
 fi
 
 # checkout function uses git to clone the repo.
