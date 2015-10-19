@@ -6,10 +6,9 @@ set -x
 
 JOB_SEARCH_ROOT="${HOME}/.job_search"
 GITHUB="https://github.com/crazcalm/job-search.git"
-SHELL=$1
 
 echo 'testing'
-echo "$shell"
+echo "$SHELL"
 
 # checkout function uses git to clone the repo.
 # "$1" = link to the github repo
