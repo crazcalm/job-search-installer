@@ -35,14 +35,14 @@ fi
 
 # Need to define the "$PROFILE" variable based on the shell used
 case "$SHELL" in
-bash)
+/bin/bash)
     PROFILE="~/.bashrc"
     echo 'case: bash'
     ;;
-zsh)
+/bin/zsh)
     PROFILE="~/.zshrc"
     ;;
-ksh)
+/bin/ksh)
     PROFILE="~/.profile"
     ;;
 fish)
