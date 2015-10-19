@@ -8,6 +8,20 @@ JOB_SEARCH_ROOT="${HOME}/.job_search"
 GITHUB="https://github.com/crazcalm/job-search.git"
 SHELL=$1
 
+# checkout function uses git to clone the repo.
+# "$1" = link to the github repo
+# "$2" = The directory path where the repo will be cloned to. 
+# "!" = negation
+# "-d" = Checks to see if that directory exists
+function checkout {
+    if [! -d "$2"];then
+        git clone "$1" "$2"
+    else
+        echo "Exited because \"${2}\" already exits"
+        exit 2
+    fi
+}
+
 # Need to check to see if the shell is variable is Null
 # I believe "-z" makes sure that the string is not empty
 if [-z "$SHELL"]; then
@@ -47,20 +61,6 @@ else
     echo 'The git command does exits! I should clone the repo here...'
     checkout ${GITHUB} ${JOB_SEARCH_ROOT}
 fi
-
-# checkout function uses git to clone the repo.
-# "$1" = link to the github repo
-# "$2" = The directory path where the repo will be cloned to. 
-# "!" = negation
-# "-d" = Checks to see if that directory exists
-function checkout {
-    if [! -d "$2"];then
-        git clone "$1" "$2"
-    else
-        echo "Exited because \"${2}\" already exits"
-        exit 2
-    fi
-}
 
 {
     echo "Use job-search from any directory by"
