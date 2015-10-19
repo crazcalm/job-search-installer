@@ -2,7 +2,9 @@
 
 # bash will exist whenever it encounters a failure
 set -e
-set -x
+
+# To run in debug mode, uncomment the following line
+#set -x
 
 JOB_SEARCH_ROOT="${HOME}/.job_search"
 GITHUB="https://github.com/crazcalm/job-search.git"
@@ -72,7 +74,7 @@ fi
     case "${SHELL}" in
     /bin/bash)
         # Add an example of creating an alias
-        echo "alias jobs=python3 ${JOB_SEARCH_ROOT}/jobs.py"
+        echo "alias job-search=\"python3 ${JOB_SEARCH_ROOT}/jobs.py\""
         ;;
     *)
         echo "Look up how to create alias in your shell"
