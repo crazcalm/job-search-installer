@@ -69,10 +69,10 @@ fi
     case "${SHELL}" in
     /bin/bash)
         # Add an example of creating an alias
-        echo "alias job-search=\"python3 ${JOB_SEARCH_ROOT}/jobs.py\""
+        echo -e "alias job-search=\"python3 ${JOB_SEARCH_ROOT}/jobs.py\"\n\n"
         ;;
     *)
-        echo "Look up how to create alias in your shell"
+        echo -e "Look up how to create alias in your shell\n\n"
         ;;
     esac
 }
