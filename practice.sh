@@ -41,10 +41,11 @@ esac
 # Need to check if "git" is installed on this computer
 # Checks to see if the git commands exists
 if ! command -v git 1>/dev/null 2>&1; then
-    echo "job-search: Git is not installed. Cannot continue." &>2
+    echo "job-search: Git is not installed. Cannot continue." & >2
     exit 2
 else
     echo 'The git command does exits! I should clone the repo here...'
+    checkout ${GITHUB} ${JOB_SEARCH_ROOT}
 fi
 
 # checkout function uses git to clone the repo.
@@ -52,7 +53,7 @@ fi
 # "$2" = The directory path where the repo will be cloned to. 
 # "!" = negation
 # "-d" = Checks to see if that directory exists
-function checkout{
+function checkout {
     if [! -d "$2"];then
         git clone "$1" "$2"
     else
