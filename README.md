@@ -9,7 +9,7 @@
     the job-search application from any directory.
 
 ##Installation:
-	$ curl -L https://github.com/crazcalm/job-search-installer/blob/master/installer.sh | bash
+	$ curl -L https://raw.githubusercontent.com/crazcalm/job-search-installer/master/installer.sh | bash
 
 ##Deletion:
 	Remove the .job-search directory from your home directory.
