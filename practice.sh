@@ -9,9 +9,6 @@ set -e
 JOB_SEARCH_ROOT="${HOME}/.job_search"
 GITHUB="https://github.com/crazcalm/job-search.git"
 
-echo 'testing'
-echo "$SHELL"
-
 # checkout function uses git to clone the repo.
 # "$1" = link to the github repo
 # "$2" = The directory path where the repo will be cloned to. 
@@ -31,11 +28,10 @@ function checkout {
 if [ -z "$SHELL" ]; then
     echo 'A shell argument was not used (Ex: bash)'
     exit 2
-else
-    echo "The ${SHELL} is being used."
 fi
 
-# Need to define the "$PROFILE" variable based on the shell used
+# Need to define the "$PROFILE" variable based on the shell used.
+# Note: The bash shell has been tested, but not the others...
 case "$SHELL" in
 /bin/bash)
     PROFILE="~/.bashrc"
@@ -62,13 +58,13 @@ if ! command -v git 1>/dev/null 2>&1; then
     echo "job-search: Git is not installed. Cannot continue." & >2
     exit 2
 else
-    echo 'The git command does exits! I should clone the repo here...'
+    echo "\n\n"
     checkout ${GITHUB} ${JOB_SEARCH_ROOT}
 fi
 
 {
-    echo "Use job-search from any directory by"
-    echo "creating an alias in your ${PROFILE}"
+    echo "\n\nUse job-search from any directory by"
+    echo "creating an alias in your ${PROFILE}\n\n"
 
     # Give them and example of creating an alias
     case "${SHELL}" in
